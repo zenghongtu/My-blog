@@ -1,25 +1,21 @@
 language: node_js
-node_js:
-  - "stable"
-cache:
-  directories:
-    - node_modules
+node_js: --lts
+cache: npm
+sudo: required
 branches:
   only:
     - master
 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  local_dir: public
-  keep-history: true
-  on:
-    branch: master # 构建分支
+before_install:
+  - npm install -g gatsby
+
+install:
+  - npm install
 
 before_script:
-  - "npm i -g gatsby"
-  - "npm i"
+  - git config user.name "zenghongtu"
+  - git config user.email "zenghongtu@gmail.com"
+  - sed -i'' "s~git@github.com:zenghongtu/zenghongtu.github.io.git~https://${GITHUB_TOKEN}@github.com/zenghongtu/zenghongtu.github.io.git~" package.json
 
-after_success:
-  - "npm run deploy"
+script:
+  - npm run deploy
