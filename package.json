@@ -65,7 +65,8 @@
     "lint": "eslint src/**/*.{js,jsx}",
     "stylelint": "stylelint src/**/*.js",
     "generate-app-icons": "sh ./scripts/generate-app-icons.sh",
-    "deploy": "npm run build && gh-pages -b master -d public"
+    "deploy": "npm run build && gh-pages -b master -d public",
+    "test": "echo \"no test specified\" && exit 0"
   },
   "devDependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",
