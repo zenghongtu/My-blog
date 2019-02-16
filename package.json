@@ -65,7 +65,7 @@
     "lint": "eslint src/**/*.{js,jsx}",
     "stylelint": "stylelint src/**/*.js",
     "generate-app-icons": "sh ./scripts/generate-app-icons.sh",
-    "deploy": "gh-pages -r git@github.com:zenghongtu/zenghongtu.github.io.git -d public"
+    "deploy": "npm run build && gh-pages -b master -d public"
   },
   "devDependencies": {
     "@mapbox/stylelint-processor-arbitrary-tags": "^0.2.0",

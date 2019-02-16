@@ -1,0 +1,25 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+branches:
+  only:
+    - blog
+
+deploy:
+  provider: pages
+  target_branch: master  # pages 所在分支
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local_dir: public
+  keep-history: true
+  on:
+    branch: blog # 构建分支
+before_script:
+  - "npm i -g gatsby"
+  - "npm i"
+
+after_success:
+  - "npm run deploy"
