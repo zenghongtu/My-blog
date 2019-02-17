@@ -1,9 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import config from "../../../content/meta/config";
-import avatar from "../../images/jpg/avatar.jpg";
-
 const ArticleFooter = props => {
   const { prefix, theme } = props;
 
@@ -17,7 +14,7 @@ const ArticleFooter = props => {
         </div>
         <div>发布日期：{prefix}</div>
         <div>
-          本文地址：<a href={window.location.href}>{window.location.href}</a>
+          本文地址：{window ? <a href={window.location.href}>{window.location.href}</a> : ""}
         </div>
       </div>
 
