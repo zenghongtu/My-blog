@@ -14,7 +14,11 @@ const ArticleFooter = props => {
         </div>
         <div>发布日期：{prefix}</div>
         <div>
-          本文地址：{window ? <a href={window.location.href}>{window.location.href}</a> : ""}
+          本文地址：{typeof window !== "undefined" ? (
+            <a href={window.location.href}>{window.location.href}</a>
+          ) : (
+            ""
+          )}
         </div>
       </div>
 
