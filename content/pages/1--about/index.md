@@ -5,8 +5,9 @@ menuTitle: About
 <div>
  <div >About me</div>
      <hr>
-                <h3>全干码农一枚</h3>
-                <h5 class="job">目前就职于一家人工智能公司</h5>
+                <h3>> 全干码农一枚 <</h3>
+                <h5> 技术栈：JavaScript / CSS / HTML / React / Python / Django / ... </h5>
+                <h5 class="job">目前就职于一家人工智能公司，负责大部分前后端业务的编写。</h5>
             
                 <br>
                 <br>
