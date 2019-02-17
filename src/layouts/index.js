@@ -13,6 +13,7 @@ export const ScreenWidthContext = React.createContext(0);
 export const FontLoadedContext = React.createContext(false);
 
 import themeObjectFromYaml from "../theme/theme.yaml";
+import BaiduTongji from "./BaiduTongji";
 
 class Layout extends React.Component {
   constructor() {
@@ -171,6 +172,7 @@ class Layout extends React.Component {
                         display: block;
                       }
                     `}</style>
+                    <BaiduTongji />
                   </React.Fragment>
                 </ScreenWidthContext.Provider>
               </FontLoadedContext.Provider>
