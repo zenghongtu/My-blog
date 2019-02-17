@@ -2,9 +2,9 @@
 title: footnote
 ---
 
-* it's a demo site of the [gatsby-starter-hero-blog](https://github.com/greglobinski/gatsby-starter-hero-blog)
-* built by [greg lobinski](https://www.greglobinski.com)
-* Check [Front-end web development with Greg](https://dev.greglobinski.com)
-* delivered by [Netlify](https://www.netlify.com/)
+* ©️2019 [Jason's Blog](http://zenghongtu.com/) By [Jason Zeng](https://github.com/zenghongtu)
+* Theme - [gatsby-starter-hero-blog](https://github.com/greglobinski/gatsby-starter-hero-blog)
+* Build with [Gatsby](https://www.gatsbyjs.org/) and [React](https://reactjs.org/)
+* Hosted on [GitHub Pages](https://pages.github.com/)
 * photos by [unsplash.com](https://unsplash.com)
 * graphic by [pixabay.com](https://pixabay.com)
