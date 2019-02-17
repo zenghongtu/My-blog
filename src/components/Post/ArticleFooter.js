@@ -13,9 +13,12 @@ const ArticleFooter = props => {
           </a>）
         </div>
         <div>发布日期：{prefix}</div>
-        <div>
-          本文地址：{typeof window !== "undefined" ? (
-            <a href={window.location.href}>{window.location.href}</a>
+        <div className="location">
+          <span className="name">本文地址：</span>
+          {typeof window !== "undefined" ? (
+            <a className="href" href={window.location.href}>
+              {window.location.href}
+            </a>
           ) : (
             ""
           )}
@@ -29,6 +32,19 @@ const ArticleFooter = props => {
           padding: ${theme.space.l} 0;
           border-top: 1px solid ${theme.line.color};
           border-bottom: 1px solid ${theme.line.color};
+        }
+        .location {
+          overflow: hidden;
+        }
+        .name {
+          float: left;
+        }
+        .href {
+          max-width: calc(100% - 80px);
+          float: left;
+          text-overflow: hidden;
+          text-overflow: ellipsis;
+          overflow: hidden;
         }
       `}</style>
     </React.Fragment>

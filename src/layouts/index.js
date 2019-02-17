@@ -13,7 +13,7 @@ export const ScreenWidthContext = React.createContext(0);
 export const FontLoadedContext = React.createContext(false);
 
 import themeObjectFromYaml from "../theme/theme.yaml";
-import BaiduTongji from "./BaiduTongji";
+import BaiduTongji from "../utils/BaiduTongji";
 
 class Layout extends React.Component {
   constructor() {
