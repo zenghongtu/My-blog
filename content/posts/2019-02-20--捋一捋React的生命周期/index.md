@@ -5,6 +5,7 @@ cover: photo-1451187580459-43490279c0fa.jpeg
 author: Jason Zeng
 ---
 
+
 前言：React 的版本从 v15 到 v16.3 ，再到v16.4，现在最新的版本是 v16.8了。其中最大的变化可能是`React Hooks`的加入，而最令人困惑的却是它的生命周期，新旧生命周期函数混杂在一起，难免会让许多新来者有很多困惑。所以这一篇我们来分析一下 React 生命周期的演变及原因，进一步理解其使用。
 
 ## 组件生命周期的四个阶段
@@ -35,6 +36,7 @@ constructor(props){
     super(props)
 }
 ```
+
 `super(props)`用来调用父类的构建方法。
 
 ### Mounting   （加载阶段：涉及3个钩子函数）
@@ -57,14 +59,14 @@ constructor(props){
 
 在组件加载后，如果有新的`props`传递过来，会先调用这个函数，可以在这里调用`setState()`修改`state`。
 
-```
+```js
 componentWillReceiveProps(nextProps)
 ```
 
 #### shouldComponentUpdate()
 `react`中一个重要的性能优化点，组件接收到新的`props`或者`state`，返回`true`表示需要更新 dom，返回`false`阻止更新。
 
-```
+```js
 shouldComponentUpdate(nextProps, nextState)
 ```
 
@@ -73,7 +75,7 @@ shouldComponentUpdate(nextProps, nextState)
 
 组件加载时不调用，只有在组件需要更新（即`shouldComponentUpdate`返回`true`）时调用。
 
-```
+```js
 componentWillUpdate(nextProps, nextState)
 ```
 
@@ -84,26 +86,29 @@ componentWillUpdate(nextProps, nextState)
 
 #### componentDidUpdate()
 在组件更新完成后立即被调用，可以进行网络请求等。
-```
+
+```js
 componentDidUpdate(prevProps, prevState)
 ```
 
 ### Unmounting  （卸载阶段：涉及1个钩子函数）
 #### componentWillUnmount()
 在组件被卸载和销毁之前调用，可以在这里处理任何必要的清理工作，比如解除定时器，取消已经发起的网络请求，清理在`componentDidMount`函数中创建的 DOM 元素。
-```
+
+```js
 componentWillUnmount()
 ```
 
 ### Error Handling（错误处理：涉及1个钩子函数）
 #### componentDidCatch()
 错误边界捕获，在v16.0刚推出的时候新增加的一个生命周期函数，用于捕获在**子组件树**中任意地方发生的 JavaScript 错误，一个错误边界不能捕获它自己内部的错误。
-```
+
+```js
 componentDidCatch(error, info)
 ```
 
 ### 组件的基本写法
-```
+```js
 import React, {Component} from 'React'
 
 export default class OldReactComponent extends Componet{
@@ -152,7 +157,7 @@ export default class OldReactComponent extends Componet{
 ### Mounting   （加载阶段：涉及3个钩子函数）
 #### static getDerivedStateFromProps()
 因为是静态方法，所以无法访问到组件实例。每次组件调用`render`前都会被调用，获取新的`props`和`state`（v16.3只会为`props`的而调用，v16.4修正为`props`和`state`)之后，返回一个对象作为新的`state`，如果返回`null`则表示不需要更新；配合componentDidUpdate，可以覆盖componentWillReceiveProps的所有用法。并且它应该是个纯函数，没有副作用(side effect)。
-```
+```js
 static getDerivedStateFromProps(props,state)
 ```
 
@@ -175,7 +180,7 @@ static getDerivedStateFromProps(props,state)
 #### getSnapshotBeforeUpdate()
 触发时间: update发生的时候，在render之后，在组件dom渲染之前；返回一个值，作为componentDidUpdate的第三个参数；配合componentDidUpdate, 可以覆盖componentWillUpdate的所有用法，常用于 scroll 位置的定位。
 
-```
+```js
 getSnapshotBeforeUpdate(prevProps, prevState)
 ```
 
@@ -195,13 +200,13 @@ getSnapshotBeforeUpdate(prevProps, prevState)
 #### static getDerivedStateFromError()
  用于在“render”阶段（非`render`函数）的错误捕获，应该是个纯函数，没有副作用(side effect)。
 
-```
+```js
 static getDerivedStateFromError(error)
 ```
 
 ### 组件的基本写法
 
-```
+```js
 import React, {Component} from 'React'
 
 export default class OldReactComponent extends Componet{
