@@ -1,6 +1,6 @@
 ---
-title: 通过React-use学习如何利用React
-category: "hooks造轮子"
+title: 通过React-use来学习如何利用hook造轮子
+category: "React"
 cover: photo-1487017159836-4e23ece2e4cf.jpeg
 author: Jason Zeng
 ---

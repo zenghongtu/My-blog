@@ -1,6 +1,6 @@
 ---
 title: 国内信用卡撸AWS免费一年服务器，快速搭建SS
-category: "思考"
+category: "撸羊毛"
 cover: photo-1514041884614-65858e220493.jpeg
 author: Jason Zeng
 ---

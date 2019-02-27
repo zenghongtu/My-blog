@@ -1,6 +1,6 @@
 ---
 title: 快速了解react-hooks
-category: "react"
+category: "React"
 cover: photo-1489389944381-3471b5b30f04.jpeg
 author: Jason Zeng
 ---
