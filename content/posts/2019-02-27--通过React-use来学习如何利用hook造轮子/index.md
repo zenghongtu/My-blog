@@ -231,3 +231,8 @@ export default useLifecycles;
 ```
 
 
+## 总结一下
+
+从这几个钩子中可以看出，借助 React Hooks 的强大能力，我们完全可以在函数中实现类组件中的一些用法，而且比类组件写起来更加的简洁、方便。让我们抛开类组件，全面拥抱 React Hooks 吧！
+
+
