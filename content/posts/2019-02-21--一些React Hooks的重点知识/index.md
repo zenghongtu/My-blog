@@ -1,5 +1,5 @@
 ---
-title: 快速了解react-hooks
+title: 一些React Hooks的重点知识
 category: "React"
 cover: photo-1489389944381-3471b5b30f04.jpeg
 author: Jason Zeng
