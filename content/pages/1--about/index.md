@@ -5,10 +5,10 @@ menuTitle: About
 <div>
  <div >About me</div>
      <hr>
-                <h3>> 全干码农一枚 <</h3>
-                <h4> 键盘发骚友、电路板维修工及电子爱好者 </h4> 
-                <h5> 技术栈：JavaScript / CSS / HTML / React / Python / Django / ... </h5>
-                <h5 class="job">目前就职于一家人工智能公司，负责大部分前后端业务人员的分配和代码的编写。</h5>
+                <h3>> 前端攻城狮一枚 <</h3>
+                <h4> 也是键盘发骚友 & 电子爱好者 </h4> 
+                <h5> 技术栈：JavaScript / CSS / React / Vue / Python / Django / ... </h5>
+                <h5 class="job">目前就职于一家人工智能初创企业，主导前端开发并参与部分服务端的开发</h5>
             
                 <br>
                 <br>
