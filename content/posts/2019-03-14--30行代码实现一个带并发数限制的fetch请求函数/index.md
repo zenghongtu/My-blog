@@ -192,34 +192,28 @@ function handleFetchQueue(urls, max, callback) {
 
 ```JavaScript
 function handleFetchQueue(urls, max, callback) {
-  const requestArr = [];
-  urls.forEach((item, idx) => {
-    const i = Math.floor(idx / max);
-    if (requestArr[i]) {
-      requestArr[i].push(item)
-    } else {
-      requestArr[i] = [item]
+  const urlCount = urls.length;
+  const requestsQueue = [];
+  const results = [];
+  let i = 0;
+  const handleRequest = (url) => {
+    const req = fetch(url).then(res => {
+      console.log('当前并发： '+requestsQueue);
+      const len = results.push(res);
+      if (len < urlCount && i + 1 < urlCount) {
+        requestsQueue.shift();
+        handleRequest(urls[++i])
+      } else if (len === urlCount) {
+        'function' === typeof callback && callback(results)
+      }
+    }).catch(e => {
+      results.push(e)
+    });
+    if (requestsQueue.push(req) < max) {
+      handleRequest(urls[++i])
     }
-  });
-
-
-  const handleSubRequests = (subReqs) => {
-    const results = [];
-    subReqs.forEach(req => {
-      fetch(req).then(res => {
-        if (results.push(res) === max) {
-          if (requestArr.length < 1) {
-            'function' === typeof callback && callback(results)
-          } else {
-            handleSubRequests(requestArr.shift(), requestArr, max)
-          }
-        }
-      }).catch(e => {
-        results.push(e)
-      })
-    })
   };
-  handleSubRequests(requestArr.shift())
+  handleRequest(urls[i])
 }
 
 
@@ -244,7 +238,6 @@ const callback = () => {
 
 
 handleFetchQueue(urls, max, callback);
-
 ```
 
 ## 总结
